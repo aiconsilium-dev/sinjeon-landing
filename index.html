@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신전떡볶이 포장용기 강매 부당이득 반환 소송 | 법무법인 더 에이치 황해</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #ffffff;
+      color: #18192a;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== TOKENS ===== */
+    :root {
+      --bg: #ffffff;
+      --surface: #f7f8fb;
+      --surface2: #eef0f6;
+      --border: #dde1ed;
+      --point: #7B68AE;
+      --point-light: #ede9f7;
+      --point-dark: #6454a0;
+      --text: #18192a;
+      --muted: #5a607a;
+      --dim: #a0a8c0;
+      --error: #d94f4f;
+      --shadow: 0 2px 16px rgba(123,104,174,0.08);
+      --radius-card: 12px;
+      --radius-input: 8px;
+      --radius-btn: 10px;
+    }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(0); }
+      to { transform: translateY(100%); }
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+    }
+    .header-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .logo strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: var(--radius-btn);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      border: 2px solid transparent;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .btn-primary {
+      background: var(--point);
+      color: #fff;
+      border-color: var(--point);
+    }
+    .btn-primary:hover { background: var(--point-dark); border-color: var(--point-dark); }
+    .btn-outline {
+      background: transparent;
+      color: var(--point);
+      border-color: var(--point);
+    }
+    .btn-outline:hover { background: var(--point-light); }
+    .btn-sm { padding: 8px 14px; font-size: 13px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 56px 20px 48px;
+      text-align: center;
+    }
+    .hero-inner { max-width: 640px; margin: 0 auto; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--point-light);
+      color: var(--point);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--point);
+      animation: blink 1.2s ease-in-out infinite;
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero h1 .accent { color: var(--point); }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 32px;
+      word-break: keep-all;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+    .hero-btns .btn { font-size: 15px; padding: 13px 24px; }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 18px 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .stat-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--point);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    /* ===== APPLY SECTION ===== */
+    .apply-section {
+      padding: 60px 20px;
+      background: var(--surface);
+    }
+    .apply-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--point);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    /* Progress */
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 36px;
+    }
+    .progress-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+    .step-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      color: var(--dim);
+      transition: all 0.25s ease;
+    }
+    .step-circle.active {
+      border-color: var(--point);
+      color: var(--point);
+      background: var(--point-light);
+    }
+    .step-circle.done {
+      border-color: var(--point);
+      background: var(--point);
+      color: #fff;
+    }
+    .step-name {
+      font-size: 11px;
+      color: var(--dim);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .step-name.active { color: var(--point); font-weight: 700; }
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+      margin: 0 6px;
+      margin-bottom: 22px;
+      transition: background 0.25s;
+    }
+    .step-line.done { background: var(--point); }
+
+    /* Form Card */
+    .form-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+    }
+    .step-panel { display: none; }
+    .step-panel.active { display: block; animation: fadeIn 0.3s ease; }
+
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .form-label .req {
+      color: var(--point);
+      margin-left: 3px;
+    }
+    .form-label .opt {
+      color: var(--dim);
+      font-size: 12px;
+      font-weight: 400;
+      margin-left: 4px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-input);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.18s;
+      outline: none;
+    }
+    .form-input:focus { border-color: var(--point); }
+    .form-input.error { border-color: var(--error); }
+    .form-input::placeholder { color: var(--dim); }
+    textarea.form-input {
+      resize: vertical;
+      min-height: 110px;
+    }
+    .error-msg {
+      display: none;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--error);
+      font-weight: 500;
+    }
+    .error-msg.show { display: block; }
+
+    /* File Upload */
+    .file-notice {
+      background: var(--point-light);
+      border-left: 3px solid var(--point);
+      border-radius: var(--radius-input);
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-input);
+      padding: 20px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s;
+      margin-bottom: 10px;
+      background: var(--surface);
+    }
+    .upload-zone:hover, .upload-zone.dragover {
+      border-color: var(--point);
+      background: var(--point-light);
+    }
+    .upload-icon { font-size: 22px; margin-bottom: 6px; }
+    .upload-text {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .upload-text strong { color: var(--point); }
+    .file-list { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-input);
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .file-item-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: calc(100% - 32px);
+    }
+    .file-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dim);
+      font-size: 16px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: color 0.15s;
+      flex-shrink: 0;
+    }
+    .file-remove:hover { color: var(--error); }
+    .hidden-input { display: none; }
+
+    /* Privacy checkbox */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--point);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .checkbox-label {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Form nav */
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      gap: 10px;
+    }
+    .form-nav .btn { flex: 1; justify-content: center; }
+
+    /* Success */
+    .success-panel {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .success-panel.show { display: block; animation: fadeIn 0.5s ease; }
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--point);
+      color: #fff;
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .success-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .success-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 32px 20px;
+      background: var(--surface2);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-inner { max-width: 640px; margin: 0 auto; }
+    .footer-info {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    /* ===== BOTTOM SHEET ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(24,25,42,.45);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .overlay.show { opacity: 1; pointer-events: all; }
+    .bottom-sheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 201;
+      background: var(--bg);
+      border-radius: 20px 20px 0 0;
+      max-height: 88vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bottom-sheet.show { transform: translateY(0); }
+    .sheet-header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      padding: 16px 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      z-index: 1;
+    }
+    .sheet-handle-wrap {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .sheet-handle {
+      width: 40px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 100px;
+    }
+    .sheet-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .sheet-close {
+      background: var(--surface);
+      border: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--muted);
+      transition: background 0.15s;
+    }
+    .sheet-close:hover { background: var(--surface2); }
+    .sheet-body {
+      padding: 24px 20px 40px;
+    }
+    .sheet-section { margin-bottom: 32px; }
+    .sheet-section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .highlight-box {
+      background: var(--point-light);
+      border-left: 3px solid var(--point);
+      border-radius: var(--radius-input);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+      word-break: keep-all;
+    }
+    .sheet-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+    .sanction-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .sanction-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .sanction-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--point);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* Timeline */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: flex;
+      gap: 14px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--point);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .timeline-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin-top: 4px;
+    }
+    .timeline-item:last-child .timeline-line { display: none; }
+    .timeline-content {}
+    .timeline-date {
+      font-size: 12px;
+      color: var(--dim);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .timeline-text {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* Products grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .product-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-input);
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Law firm intro */
+    .firm-intro {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 20px;
+    }
+    .firm-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .firm-stats {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .firm-stat {
+      background: var(--point-light);
+      color: var(--point);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .firm-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .sheet-cta {
+      margin-top: 28px;
+      text-align: center;
+    }
+    .sheet-cta .btn {
+      width: 100%;
+      justify-content: center;
+      font-size: 16px;
+      padding: 15px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 460px) {
+      .hero h1 { font-size: 26px; }
+      .hero-desc { font-size: 15px; }
+      .stats { grid-template-columns: 1fr; gap: 10px; }
+      .stat-value { font-size: 18px; }
+      .form-card { padding: 24px 18px; }
+      .hero-btns .btn { width: 100%; }
+      .hero-btns { flex-direction: column; }
+      .section-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">법무법인 <strong>더 에이치 황해</strong></div>
+      <button class="btn btn-primary btn-sm" id="headerApplyBtn">소송 신청하기</button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        소송 모집 중
+      </div>
+      <h1>
+        신전떡볶이 포장용기 강매<br />
+        <span class="accent">부당이득 반환 소송</span>
+      </h1>
+      <p class="hero-desc">
+        공정거래위원회, 신전떡볶이 포장용기 65억 강매에 과징금 9.7억 부과<br />—
+        가맹본부의 부당한 물품 강매는 법률상 근거 없는 부당이득입니다.<br />
+        지금 돌려받으세요.
+      </p>
+      <div class="hero-btns">
+        <button class="btn btn-primary" id="heroApplyBtn">소송 신청하기 →</button>
+        <button class="btn btn-outline" id="heroInfoBtn">사건 알아보기 ↗</button>
+      </div>
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-value">공정위 제재</div>
+          <div class="stat-label">과징금 9.7억 부과 ·<br />포장용기 65억 강매 확인</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">26만+</div>
+          <div class="stat-label">법무법인 더 에이치 황해<br />집단소송 누적 참여자</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">3,980억+</div>
+          <div class="stat-label">법무법인 더 에이치 황해<br />누적 승소 금액</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPLY SECTION ===== -->
+  <section class="apply-section" id="applySection">
+    <div class="apply-inner">
+      <div class="section-label">소송 신청</div>
+      <h2 class="section-title">1분이면 신청 완료</h2>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-step">
+          <div class="step-circle active" id="circle1">1</div>
+          <div class="step-name active" id="name1">기본 정보</div>
+        </div>
+        <div class="step-line" id="line1"></div>
+        <div class="progress-step">
+          <div class="step-circle" id="circle2">2</div>
+          <div class="step-name" id="name2">제출 서류</div>
+        </div>
+        <div class="step-line" id="line2"></div>
+        <div class="progress-step">
+          <div class="step-circle" id="circle3">3</div>
+          <div class="step-name" id="name3">문의사항</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <!-- STEP 1 -->
+        <div class="step-panel active" id="step1">
+          <div class="form-group">
+            <label class="form-label" for="inputName">이름<span class="req">*</span></label>
+            <input type="text" id="inputName" class="form-input" placeholder="홍길동" maxlength="30" />
+            <div class="error-msg" id="errName">이름을 입력해 주세요.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inputPhone">휴대폰 번호<span class="req">*</span></label>
+            <input type="tel" id="inputPhone" class="form-input" placeholder="010-0000-0000" maxlength="13" inputmode="numeric" />
+            <div class="error-msg" id="errPhone">올바른 휴대폰 번호를 입력해 주세요.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="inputBranch">지점명<span class="req">*</span></label>
+            <input type="text" id="inputBranch" class="form-input" placeholder="예: 신전떡볶이 강남역점" maxlength="60" />
+            <div class="error-msg" id="errBranch">지점명을 입력해 주세요.</div>
+          </div>
+          <div class="form-nav">
+            <button class="btn btn-primary" id="step1Next">다음 →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step-panel" id="step2">
+          <div class="file-notice">
+            아래 서류를 첨부해 주시면 소송 진행이 빨라집니다.<br />
+            <strong>서류가 없어도 신청은 가능합니다.</strong>
+          </div>
+
+          <!-- Upload: 가맹계약서 -->
+          <div class="form-group">
+            <label class="form-label">가맹계약서<span class="opt">(선택)</span></label>
+            <div class="upload-zone" id="zone1" data-target="files1">
+              <div class="upload-icon">📄</div>
+              <div class="upload-text">드래그하거나 <strong>클릭하여 파일 선택</strong></div>
+              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 여러 파일 가능</div>
+            </div>
+            <input type="file" id="files1" class="hidden-input" multiple accept=".pdf,.jpg,.jpeg,.png,.heic" />
+            <div class="file-list" id="list1"></div>
+          </div>
+
+          <!-- Upload: 물품구매 내역서 -->
+          <div class="form-group">
+            <label class="form-label">물품구매 내역서 / 영수증<span class="opt">(선택)</span></label>
+            <div class="upload-zone" id="zone2" data-target="files2">
+              <div class="upload-icon">🧾</div>
+              <div class="upload-text">드래그하거나 <strong>클릭하여 파일 선택</strong></div>
+              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 여러 파일 가능</div>
+            </div>
+            <input type="file" id="files2" class="hidden-input" multiple accept=".pdf,.jpg,.jpeg,.png,.heic" />
+            <div class="file-list" id="list2"></div>
+          </div>
+
+          <!-- Upload: 정보공개서 -->
+          <div class="form-group">
+            <label class="form-label">정보공개서<span class="opt">(선택)</span></label>
+            <div class="upload-zone" id="zone3" data-target="files3">
+              <div class="upload-icon">📋</div>
+              <div class="upload-text">드래그하거나 <strong>클릭하여 파일 선택</strong></div>
+              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 여러 파일 가능</div>
+            </div>
+            <input type="file" id="files3" class="hidden-input" multiple accept=".pdf,.jpg,.jpeg,.png,.heic" />
+            <div class="file-list" id="list3"></div>
+          </div>
+
+          <div class="form-nav">
+            <button class="btn btn-outline" id="step2Prev">← 이전</button>
+            <button class="btn btn-primary" id="step2Next">다음 →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step-panel" id="step3">
+          <div class="form-group">
+            <label class="form-label" for="inputNote">추가 문의사항<span class="opt">(선택)</span></label>
+            <textarea id="inputNote" class="form-input" placeholder="문의하실 내용이 있으면 자유롭게 적어주세요."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="checkbox-group" id="privacyLabel">
+              <input type="checkbox" id="privacyCheck" />
+              <span class="checkbox-label">
+                개인정보 수집 및 이용에 동의합니다. 수집된 정보는 소송 진행 목적으로만 사용되며, 관련 법령에 따라 안전하게 보관됩니다.
+              </span>
+            </label>
+            <div class="error-msg" id="errPrivacy">개인정보 수집·이용에 동의해 주세요.</div>
+          </div>
+          <div class="form-nav">
+            <button class="btn btn-outline" id="step3Prev">← 이전</button>
+            <button class="btn btn-primary" id="step3Submit">신청 완료하기 ✓</button>
+          </div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="success-panel" id="successPanel">
+          <div class="success-icon">✓</div>
+          <div class="success-title">접수가 완료되었습니다</div>
+          <p class="success-desc">
+            담당 변호사가 영업일 기준 3일 내<br />
+            연락드리겠습니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-info">
+        법무법인 더 에이치 황해 | 인천 미추홀구 학익로 60 · 032-251-1000
+      </p>
+      <p class="footer-copy">© 2026 법무법인 더 에이치 황해. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== BOTTOM SHEET ===== -->
+  <div class="overlay" id="overlay"></div>
+  <div class="bottom-sheet" id="bottomSheet" role="dialog" aria-modal="true" aria-label="사건 알아보기">
+    <div class="sheet-handle-wrap"><div class="sheet-handle"></div></div>
+    <div class="sheet-header">
+      <div class="sheet-title">사건 알아보기</div>
+      <button class="sheet-close" id="sheetClose" aria-label="닫기">✕</button>
+    </div>
+    <div class="sheet-body">
+
+      <!-- 1) 강매란? -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">📦 신전떡볶이 포장용기 강매란?</div>
+        <div class="highlight-box">
+          신전떡볶이 가맹본부(㈜신전)는 가맹점주들에게 포장용기·소모품을 자사 또는 지정 업체에서만 구매하도록 강제하였으며, 이로 인해 가맹점주들은 시중가보다 현저히 높은 가격으로 물품을 구매할 수밖에 없었습니다.
+        </div>
+        <p class="sheet-desc">
+          가맹사업법은 가맹본부가 가맹점주에게 필수적이지 않은 물품의 구매를 강제하는 행위를 금지하고 있습니다.
+          공정거래위원회는 이러한 행위를 불공정 거래 행위로 판단하고 시정 조치 및 과징금을 부과하였습니다.
+          가맹점주는 강매로 인해 지출한 부당 이득을 민사소송을 통해 반환받을 수 있습니다.
+        </p>
+      </div>
+
+      <!-- 2) 핵심 제재 -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">⚖️ 핵심 제재 내용</div>
+        <ul class="sanction-list">
+          <li>공정거래위원회, 신전떡볶이 가맹본부에 과징금 <strong>9억 7,000만 원</strong> 부과 결정</li>
+          <li>포장용기 강매 총액 <strong>65억 원</strong> 이상 확인 — 시정 명령 및 재발 방지 조치 부과</li>
+          <li>가맹사업법 제12조(불공정 거래 행위 금지) 위반 인정 — 민사상 부당이득 반환 청구 근거 확보</li>
+        </ul>
+      </div>
+
+      <!-- 3) 진행 현황 타임라인 -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">📅 진행 현황</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2023년</div>
+              <div class="timeline-text">공정거래위원회, 신전떡볶이 포장용기 강매 조사 착수</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2024년</div>
+              <div class="timeline-text">공정위, 과징금 9.7억 부과 및 시정명령 확정 · 65억 강매 사실 공식 확인</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2025년</div>
+              <div class="timeline-text">법무법인 더 에이치 황해, 피해 가맹점주 집단소송 준비 개시</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-date">2026년 현재</div>
+              <div class="timeline-text">집단소송 참여자 모집 진행 중 — 지금 신청 가능</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4) 강매 피해 대상 품목 -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">🛒 강매 피해 대상 품목</div>
+        <div class="product-grid">
+          <div class="product-chip">포장용기 (테이크아웃 컵)</div>
+          <div class="product-chip">포장 비닐봉투</div>
+          <div class="product-chip">일회용 수저·포크</div>
+          <div class="product-chip">냅킨 · 위생용품</div>
+          <div class="product-chip">포장 트레이</div>
+          <div class="product-chip">기타 지정 소모품</div>
+        </div>
+      </div>
+
+      <!-- 5) 법무법인 소개 -->
+      <div class="sheet-section">
+        <div class="sheet-section-title">🏛 법무법인 소개</div>
+        <div class="firm-intro">
+          <div class="firm-name">법무법인 더 에이치 황해</div>
+          <div class="firm-stats">
+            <span class="firm-stat">누적 참여자 26만+</span>
+            <span class="firm-stat">승소액 3,980억+</span>
+          </div>
+          <p class="firm-desc">
+            법무법인 더 에이치 황해는 가맹사업법 분야 집단소송 전문 로펌으로,
+            프랜차이즈 가맹점주의 권익 보호를 위해 다수의 집단소송을 성공적으로 수행해 온 경험이 있습니다.
+            소송 비용은 성공보수 방식으로 진행되어 초기 비용 부담 없이 신청하실 수 있습니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="sheet-cta">
+        <button class="btn btn-primary" id="sheetApplyBtn">소송 신청하기 →</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ===== Helpers ===== */
+    function $(id) { return document.getElementById(id); }
+    function showError(id, show) {
+      var el = $(id);
+      if (!el) return;
+      el.classList.toggle('show', show);
+    }
+    function setInputError(input, hasError) {
+      input.classList.toggle('error', hasError);
+    }
+    function scrollToApply() {
+      $('applySection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ===== Phone auto-hyphen ===== */
+    $('inputPhone').addEventListener('input', function () {
+      var v = this.value.replace(/\D/g, '');
+      if (v.length <= 3) {
+        this.value = v;
+      } else if (v.length <= 7) {
+        this.value = v.slice(0, 3) + '-' + v.slice(3);
+      } else {
+        this.value = v.slice(0, 3) + '-' + v.slice(3, 7) + '-' + v.slice(7, 11);
+      }
+    });
+
+    /* ===== Step management ===== */
+    var currentStep = 1;
+    var totalSteps = 3;
+
+    function goToStep(step) {
+      for (var i = 1; i <= totalSteps; i++) {
+        var panel = $('step' + i);
+        var circle = $('circle' + i);
+        var name = $('name' + i);
+        if (!panel) continue;
+        panel.classList.toggle('active', i === step);
+        circle.classList.remove('active', 'done');
+        name.classList.remove('active');
+        if (i < step) {
+          circle.classList.add('done');
+          circle.textContent = '✓';
+        } else if (i === step) {
+          circle.classList.add('active');
+          circle.textContent = i;
+          name.classList.add('active');
+        } else {
+          circle.textContent = i;
+        }
+        // lines
+        var line = $('line' + i);
+        if (line) { line.classList.toggle('done', i < step); }
+      }
+      currentStep = step;
+    }
+
+    /* ===== Validation ===== */
+    function validateStep1() {
+      var name = $('inputName').value.trim();
+      var phone = $('inputPhone').value.trim();
+      var branch = $('inputBranch').value.trim();
+      var phoneOk = /^010-\d{4}-\d{4}$/.test(phone);
+      var ok = true;
+      if (!name) { showError('errName', true); setInputError($('inputName'), true); ok = false; }
+      else { showError('errName', false); setInputError($('inputName'), false); }
+      if (!phoneOk) { showError('errPhone', true); setInputError($('inputPhone'), true); ok = false; }
+      else { showError('errPhone', false); setInputError($('inputPhone'), false); }
+      if (!branch) { showError('errBranch', true); setInputError($('inputBranch'), true); ok = false; }
+      else { showError('errBranch', false); setInputError($('inputBranch'), false); }
+      return ok;
+    }
+
+    function validateStep3() {
+      var checked = $('privacyCheck').checked;
+      showError('errPrivacy', !checked);
+      return checked;
+    }
+
+    /* ===== Navigation buttons ===== */
+    $('headerApplyBtn').addEventListener('click', scrollToApply);
+    $('heroApplyBtn').addEventListener('click', scrollToApply);
+
+    $('step1Next').addEventListener('click', function () {
+      if (validateStep1()) { goToStep(2); }
+    });
+    $('step2Prev').addEventListener('click', function () { goToStep(1); });
+    $('step2Next').addEventListener('click', function () { goToStep(3); });
+    $('step3Prev').addEventListener('click', function () { goToStep(2); });
+    $('step3Submit').addEventListener('click', function () {
+      if (validateStep3()) { showSuccess(); }
+    });
+
+    /* ===== Success ===== */
+    function showSuccess() {
+      $('progressBar').style.display = 'none';
+      for (var i = 1; i <= totalSteps; i++) {
+        var p = $('step' + i);
+        if (p) p.classList.remove('active');
+      }
+      var sp = $('successPanel');
+      sp.classList.add('show');
+    }
+
+    /* ===== File Upload ===== */
+    var fileSets = { files1: [], files2: [], files3: [] };
+
+    function renderFileList(listId, fileSetKey) {
+      var container = $(listId);
+      container.innerHTML = '';
+      fileSets[fileSetKey].forEach(function (f, idx) {
+        var item = document.createElement('div');
+        item.className = 'file-item';
+        var nameSpan = document.createElement('span');
+        nameSpan.className = 'file-item-name';
+        nameSpan.textContent = f.name;
+        var removeBtn = document.createElement('button');
+        removeBtn.className = 'file-remove';
+        removeBtn.textContent = '✕';
+        removeBtn.setAttribute('aria-label', '파일 삭제: ' + f.name);
+        removeBtn.addEventListener('click', (function (i, key, lId) {
+          return function () {
+            fileSets[key].splice(i, 1);
+            renderFileList(lId, key);
+          };
+        })(idx, fileSetKey, listId));
+        item.appendChild(nameSpan);
+        item.appendChild(removeBtn);
+        container.appendChild(item);
+      });
+    }
+
+    function addFiles(fileSetKey, listId, fileList) {
+      for (var i = 0; i < fileList.length; i++) {
+        fileSets[fileSetKey].push(fileList[i]);
+      }
+      renderFileList(listId, fileSetKey);
+    }
+
+    function setupUpload(zoneId, inputId, fileSetKey, listId) {
+      var zone = $(zoneId);
+      var input = $(inputId);
+
+      zone.addEventListener('click', function () { input.click(); });
+      input.addEventListener('change', function () {
+        addFiles(fileSetKey, listId, this.files);
+        this.value = '';
+      });
+      zone.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        zone.classList.add('dragover');
+      });
+      zone.addEventListener('dragleave', function () {
+        zone.classList.remove('dragover');
+      });
+      zone.addEventListener('drop', function (e) {
+        e.preventDefault();
+        zone.classList.remove('dragover');
+        addFiles(fileSetKey, listId, e.dataTransfer.files);
+      });
+    }
+
+    setupUpload('zone1', 'files1', 'files1', 'list1');
+    setupUpload('zone2', 'files2', 'files2', 'list2');
+    setupUpload('zone3', 'files3', 'files3', 'list3');
+
+    /* ===== Bottom Sheet ===== */
+    var overlay = $('overlay');
+    var sheet = $('bottomSheet');
+
+    function openSheet() {
+      overlay.classList.add('show');
+      sheet.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSheet() {
+      overlay.classList.remove('show');
+      sheet.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    $('heroInfoBtn').addEventListener('click', openSheet);
+    $('sheetClose').addEventListener('click', closeSheet);
+    overlay.addEventListener('click', closeSheet);
+    $('sheetApplyBtn').addEventListener('click', function () {
+      closeSheet();
+      setTimeout(scrollToApply, 150);
+    });
+
+    /* Keyboard close */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeSheet();
+    });
+
+  })();
+  </script>
+</body>
+</html>
