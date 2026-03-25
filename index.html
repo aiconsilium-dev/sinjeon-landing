@@ -693,7 +693,7 @@
     /* ===== RESPONSIVE ===== */
     
       .hero-desc { font-size: 15px; }
-      .stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      /* stats default in base CSS */
       .stat-value { font-size: 18px; }
       .form-card { padding: 24px 18px; }
       
@@ -746,10 +746,10 @@
   .hero-btns .btn { flex: 1; font-size: 13.5px; padding: 12px 0; justify-content: center; white-space: nowrap; }
   
   /* 스탯 3열 유지 */
-  .stats-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 8px; }
-  .stat-card { padding: 12px 8px; }
-  .stat-num { font-size: 14px; }
-  .stat-label { font-size: 10px; line-height: 1.4; }
+  .stats { grid-template-columns: 1fr !important; gap: 8px; }
+  .stat-card { padding: 12px 14px; display: flex; align-items: center; gap: 12px; text-align: left; }
+  .stat-value { font-size: 16px; margin: 0; }
+  .stat-label { font-size: 11px; line-height: 1.4; margin: 0; }
   
   .form-section { padding: 20px 16px; }
   .form-title { font-size: 20px; }
