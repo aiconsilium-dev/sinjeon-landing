@@ -359,7 +359,7 @@
       color: var(--muted);
     }
     .upload-text strong { color: var(--point); }
-    .file-list { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .file-list { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; max-height: 230px; overflow-y: auto; }
     .file-item {
       display: flex;
       align-items: center;
@@ -410,6 +410,164 @@
       font-size: 14px;
       color: var(--muted);
       line-height: 1.5;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .checkbox-row .checkbox-group {
+      flex: 1;
+    }
+    .btn-terms {
+      flex-shrink: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--point);
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 1px;
+      white-space: nowrap;
+    }
+    .btn-terms:hover { background: var(--point-light); }
+
+    /* Disabled button */
+    .btn-primary:disabled, .btn-primary.disabled {
+      background: var(--dim);
+      border-color: var(--dim);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .btn-primary:disabled:hover, .btn-primary.disabled:hover {
+      background: var(--dim);
+      border-color: var(--dim);
+    }
+
+    /* Terms modal */
+    .terms-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(24,25,42,.45);
+      z-index: 300;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .terms-modal-overlay.show { display: flex; }
+    .terms-modal {
+      background: var(--bg);
+      border-radius: var(--radius-card);
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    }
+    .terms-modal-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .terms-modal-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .terms-modal-close {
+      background: var(--surface);
+      border: none;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--muted);
+    }
+    .terms-modal-close:hover { background: var(--surface2); }
+    .terms-modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .terms-modal-body .modal-intro {
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+    .terms-modal-body .modal-article {
+      margin-bottom: 24px;
+    }
+    .terms-modal-body .modal-article-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .terms-modal-body .modal-article-body p {
+      margin-bottom: 8px;
+    }
+    .terms-modal-body .modal-article-body p:last-child {
+      margin-bottom: 0;
+    }
+    .terms-modal-body .modal-article-body ul,
+    .terms-modal-body .modal-article-body ol {
+      margin: 8px 0 8px 18px;
+      padding-left: 4px;
+    }
+    .terms-modal-body .modal-article-body ul { list-style-type: disc; }
+    .terms-modal-body .modal-article-body ol { list-style-type: decimal; }
+    .terms-modal-body .modal-article-body li {
+      margin-bottom: 4px;
+    }
+    .terms-modal-body .modal-table-wrap {
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+    .terms-modal-body .modal-table {
+      width: 100%;
+      min-width: 300px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 12px;
+    }
+    .terms-modal-body .modal-table th {
+      background: var(--surface);
+      font-weight: 600;
+      color: var(--text);
+      padding: 8px 10px;
+      text-align: left;
+    }
+    .terms-modal-body .modal-table td {
+      color: var(--muted);
+      padding: 8px 10px;
+      border-top: 1px solid var(--surface2);
+    }
+    .terms-modal-body .modal-supplement {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .terms-modal-body .modal-footer-info {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
     }
 
     /* Form nav */
@@ -699,8 +857,8 @@
       
       
       .section-title { font-size: 22px; }
-    }
-  
+
+
 /* 모바일 개선 */
 
   .hero h1 { font-size: 26px; line-height: 1.35; }
@@ -722,7 +880,7 @@
   .header { padding: 12px 16px; }
   .header .btn { font-size: 12px; padding: 8px 14px; }
   .footer { padding: 20px 16px; font-size: 11px; }
-}
+
 
 
   .hero-desc { font-size: 13px; }
@@ -732,7 +890,7 @@
   .step-progress .line { flex: 1; }
   .input-field { font-size: 15px; padding: 12px 14px; }
   .form-label { font-size: 13px; }
-}
+
 
 
 
@@ -854,11 +1012,13 @@
             <label class="form-label" for="inputName">이름<span class="req">*</span></label>
             <input type="text" id="inputName" class="form-input" placeholder="홍길동" maxlength="30" />
             <div class="error-msg" id="errName">이름을 입력해 주세요.</div>
+            <div class="error-msg" id="errNameFormat">한글 2~5자로 입력해 주세요. (예: 홍길동)</div>
           </div>
           <div class="form-group">
             <label class="form-label" for="inputPhone">휴대폰 번호<span class="req">*</span></label>
             <input type="tel" id="inputPhone" class="form-input" placeholder="010-0000-0000" maxlength="13" inputmode="numeric" />
-            <div class="error-msg" id="errPhone">올바른 휴대폰 번호를 입력해 주세요.</div>
+            <div class="error-msg" id="errPhone">휴대폰 번호를 입력해 주세요.</div>
+            <div class="error-msg" id="errPhoneFormat">올바른 휴대폰 번호 형식이 아닙니다. (010-XXXX-XXXX)</div>
           </div>
           <div class="form-group">
             <label class="form-label" for="inputBranch">지점명<span class="req">*</span></label>
@@ -866,27 +1026,28 @@
             <div class="error-msg" id="errBranch">지점명을 입력해 주세요.</div>
           </div>
           <div class="form-nav">
-            <button class="btn btn-primary" id="step1Next">다음 →</button>
+            <button class="btn btn-primary" id="step1Next" disabled>다음 →</button>
           </div>
         </div>
 
         <!-- STEP 2 -->
         <div class="step-panel" id="step2">
           <div class="file-notice">
-            아래 서류를 첨부해 주시면 소송 진행이 빨라집니다.<br />
-            <strong>서류가 없어도 신청은 가능합니다.</strong>
+            가맹계약서는 필수 첨부 서류입니다.<br />
+            <strong>물품구매 내역서와 정보공개서는 선택 사항입니다.</strong>
           </div>
 
           <!-- Upload: 가맹계약서 -->
           <div class="form-group">
-            <label class="form-label">가맹계약서<span class="opt">(선택)</span></label>
+            <label class="form-label">가맹계약서<span class="req">*</span></label>
             <div class="upload-zone" id="zone1" data-target="files1">
               <div class="upload-icon">📄</div>
               <div class="upload-text">드래그하거나 <strong>클릭하여 파일 선택</strong></div>
-              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 여러 파일 가능</div>
+              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 최대 50개</div>
             </div>
             <input type="file" id="files1" class="hidden-input" multiple accept=".pdf,.jpg,.jpeg,.png,.heic" />
             <div class="file-list" id="list1"></div>
+            <div class="error-msg" id="errFiles1">가맹계약서를 첨부해 주세요.</div>
           </div>
 
           <!-- Upload: 물품구매 내역서 -->
@@ -895,7 +1056,7 @@
             <div class="upload-zone" id="zone2" data-target="files2">
               <div class="upload-icon">🧾</div>
               <div class="upload-text">드래그하거나 <strong>클릭하여 파일 선택</strong></div>
-              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 여러 파일 가능</div>
+              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 최대 50개</div>
             </div>
             <input type="file" id="files2" class="hidden-input" multiple accept=".pdf,.jpg,.jpeg,.png,.heic" />
             <div class="file-list" id="list2"></div>
@@ -907,15 +1068,15 @@
             <div class="upload-zone" id="zone3" data-target="files3">
               <div class="upload-icon">📋</div>
               <div class="upload-text">드래그하거나 <strong>클릭하여 파일 선택</strong></div>
-              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF, JPG, PNG, HEIC 허용 · 여러 파일 가능</div>
+              <div class="upload-text" style="font-size:11px;color:var(--dim);margin-top:4px;">PDF만 허용 · 1개만 가능</div>
             </div>
-            <input type="file" id="files3" class="hidden-input" multiple accept=".pdf,.jpg,.jpeg,.png,.heic" />
+            <input type="file" id="files3" class="hidden-input" accept=".pdf" />
             <div class="file-list" id="list3"></div>
           </div>
 
           <div class="form-nav">
             <button class="btn btn-outline" id="step2Prev">← 이전</button>
-            <button class="btn btn-primary" id="step2Next">다음 →</button>
+            <button class="btn btn-primary" id="step2Next" disabled>다음 →</button>
           </div>
         </div>
 
@@ -926,17 +1087,29 @@
             <textarea id="inputNote" class="form-input" placeholder="문의하실 내용이 있으면 자유롭게 적어주세요."></textarea>
           </div>
           <div class="form-group">
-            <label class="checkbox-group" id="privacyLabel">
-              <input type="checkbox" id="privacyCheck" />
-              <span class="checkbox-label">
-                개인정보 수집 및 이용에 동의합니다. 수집된 정보는 소송 진행 목적으로만 사용되며, 관련 법령에 따라 안전하게 보관됩니다.
-              </span>
-            </label>
-            <div class="error-msg" id="errPrivacy">개인정보 수집·이용에 동의해 주세요.</div>
+            <div class="checkbox-row">
+              <label class="checkbox-group" id="privacyLabel">
+                <input type="checkbox" id="privacyCheck" />
+                <span class="checkbox-label">
+                  개인정보 수집 및 이용에 동의합니다.<span class="req">*</span>
+                </span>
+              </label>
+              <button type="button" class="btn-terms" id="btnViewPrivacy">약관보기</button>
+            </div>
+            <div class="checkbox-row">
+              <label class="checkbox-group" id="termsLabel">
+                <input type="checkbox" id="termsCheck" />
+                <span class="checkbox-label">
+                  이용약관에 동의합니다.<span class="req">*</span>
+                </span>
+              </label>
+              <button type="button" class="btn-terms" id="btnViewTerms">약관보기</button>
+            </div>
+            <div class="error-msg" id="errAgreement">모든 필수 약관에 동의해 주세요.</div>
           </div>
           <div class="form-nav">
             <button class="btn btn-outline" id="step3Prev">← 이전</button>
-            <button class="btn btn-primary" id="step3Submit">신청 완료하기 ✓</button>
+            <button class="btn btn-primary" id="step3Submit" disabled>신청 완료하기 ✓</button>
           </div>
         </div>
 
@@ -1039,6 +1212,307 @@
     </div>
   </div>
 
+  <!-- ===== TERMS MODALS ===== -->
+  <div class="terms-modal-overlay" id="privacyModalOverlay">
+    <div class="terms-modal">
+      <div class="terms-modal-header">
+        <div class="terms-modal-title">개인정보 수집 및 이용 동의</div>
+        <button class="terms-modal-close" id="privacyModalClose">✕</button>
+      </div>
+      <div class="terms-modal-body">
+        <p class="modal-intro">'법무법인 더 에이치 황해' 및 '프랜차이즈 차액가맹금 반환 집단소송'(이하 "차액가맹금 집단소송")은 「개인정보 보호법」, 「가맹사업거래의 공정화에 관한 법률」 등 관련 법령에 따라 이용자의 개인정보를 보호하고 관련 고충을 원활하게 처리할 수 있도록 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 1 조 (개인정보의 처리 목적)</h3>
+          <div class="modal-article-body">
+            <p>본 대리인단은 가맹점주(이용자)의 서비스 이용 및 소송 수행에 필수적인 개인정보를 다음과 같은 목적을 위하여 처리합니다.</p>
+            <ol>
+              <li><strong>소송 수행 및 법률 서비스 제공</strong>
+                <ul>
+                  <li>차액가맹금 반환 청구 소송, 공정거래위원회 신고, 가맹사업법 위반 손해배상 청구 등 소제기 및 관련 서류 작성</li>
+                  <li>부당한 필수품목 지정 및 차액가맹금 수취 여부 검토를 위한 데이터 분석</li>
+                </ul>
+              </li>
+              <li><strong>비용 정산 및 관리</strong>
+                <ul>
+                  <li>소송 인지대, 송달료, 성공보수 등 비용 결제 및 정산</li>
+                  <li>미지급 비용에 대한 청구 및 관련 행정 절차 진행</li>
+                </ul>
+              </li>
+              <li><strong>의뢰인 관리</strong>
+                <ul>
+                  <li>소송 진행 상황 고지 및 본인 확인</li>
+                  <li>가맹점주 간 소통 창구 운영 및 권익 보호 안내</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 2 조 (개인정보의 수집 및 처리 항목)</h3>
+          <div class="modal-article-body">
+            <p>본 대리인단은 소송의 입증 및 수행을 위해 아래와 같은 정보를 처리합니다.</p>
+            <div class="modal-table-wrap">
+              <table class="modal-table">
+                <thead>
+                  <tr><th>구분</th><th>수집/처리 항목</th><th>수집/처리 목적</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>회원가입 (필수)</td><td>성명, 생년월일, 연락처, 주소, 계좌정보(판결금 수령용)</td><td>의뢰인 식별, 상담 및 민원 처리, 보상금 정산</td></tr>
+                  <tr><td>소송 증빙 (필수)</td><td>가맹계약서 사본, 정보공개서, POS 매출 내역, 물품 발주/결제 내역, 부가가치세 신고자료, 사업자등록증(법인사업자의 경우)</td><td>차액가맹금 산정, 소장 작성 및 입증책임 수행</td></tr>
+                  <tr><td>본인 인증</td><td>신분증 사본, 전자서명(위임장 날인용), 인감증명서 (필요 시)</td><td>소송 위임 계약 체결 및 법원 제출용</td></tr>
+                  <tr><td>자동 수집</td><td>IP 주소, 서비스 이용 기록, 기기 정보</td><td>서비스 개선 및 부정 이용 방지</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 3 조 (개인정보 수집 방법)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li>온라인 신청 폼을 통한 의뢰인 직접 입력</li>
+              <li>이메일, 팩스, 우편을 통한 증빙 서류 제출</li>
+              <li>상담 과정에서 생성되는 녹취 또는 상담 기록</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 4 조 (개인정보의 보유 및 이용 기간)</h3>
+          <div class="modal-article-body">
+            <p>원칙적으로 소송 종료(판결 확정 및 정산 완료) 시까지 보유합니다. 다만, 관련 법령에 따라 일정 기간 보관이 필요한 경우 아래 기간 동안 보관합니다.</p>
+            <ul>
+              <li>변호사법에 따른 사건 명부 및 기록: 10년 (변호사법 제28조)</li>
+              <li>국세기본법에 따른 세법상 거래 기록: 5년</li>
+              <li>소비자 불만 및 분쟁 처리 기록: 3년</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 5 조 (개인정보의 위탁)</h3>
+          <div class="modal-article-body">
+            <p>본 대리인단은 원활한 업무 수행을 위해 아래와 같이 업무를 위탁하고 있습니다.</p>
+            <div class="modal-table-wrap">
+              <table class="modal-table">
+                <thead>
+                  <tr><th>수탁업체</th><th>위탁업무 내용</th><th>보유 및 이용 기간</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>법무법인 더 에이치 황해</td><td>소송 대행 및 의뢰인 정보 관리</td><td>위탁 계약 종료 시까지</td></tr>
+                  <tr><td>데이터 분석 업체 (필요 시)</td><td>차액가맹금 산정 및 POS 데이터 통계 분석</td><td>분석 완료 시까지</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 6 조 (개인정보 제3자 제공)</h3>
+          <div class="modal-article-body">
+            <p>본 대리인단은 수집된 정보를 소송 수행을 위해 법원, 공정거래위원회, 상대방 당사자(가맹본부 등)에 법 절차에 따라 제출할 수 있으며, 이 외에는 원칙적으로 제3자에게 제공하지 않습니다.</p>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 7 조 (이용자의 권리와 의무)</h3>
+          <div class="modal-article-body">
+            <ol>
+              <li>의뢰인은 언제든지 본인의 개인정보 조회, 수정 및 삭제(위임 철회 시)를 요청할 수 있습니다.</li>
+              <li>정확하지 않은 정보 입력으로 발생하는 소송상의 불이익에 대해서는 의뢰인 본인에게 책임이 있습니다.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 8 조 (개인정보의 파기)</h3>
+          <div class="modal-article-body">
+            <ol>
+              <li>목적 달성 시(소송 종료 등) 전자적 파일은 복구 불가능한 방법으로 삭제하며, 종이 서류는 파쇄 또는 소각합니다.</li>
+              <li>단, 법령에 의해 보존해야 하는 '소송 기록' 등은 별도 DB로 분리하여 보관합니다.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 9 조 (개인정보 보호 책임자)</h3>
+          <div class="modal-article-body">
+            <p>본 대리인단은 의뢰인의 정보를 보호하기 위해 아래와 같이 책임자를 지정하고 있습니다.</p>
+            <ul>
+              <li>성명: 천상현</li>
+              <li>직책: 변호사 / 개인정보 보호 책임자</li>
+              <li>전화: 032-251-1000</li>
+              <li>이메일: theh1000@lfthe-h.com</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-supplement">
+          <h3 class="modal-article-title">부칙</h3>
+          <p>본 개인정보 처리방침은 2026년 3월 9일부터 적용됩니다.</p>
+        </div>
+
+        <div class="modal-footer-info">
+          <p><strong>법무법인 더 에이치 황해</strong></p>
+          <p>사업자등록번호: 121-81-78634 | 대표: 천상현</p>
+          <p>주소: 인천광역시 미추홀구 학익소로 60, 반도빌딩</p>
+          <p>전화: 032-251-1000 | E-mail: theh1000@lfthe-h.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="terms-modal-overlay" id="termsModalOverlay">
+    <div class="terms-modal">
+      <div class="terms-modal-header">
+        <div class="terms-modal-title">이용약관</div>
+        <button class="terms-modal-close" id="termsModalClose">✕</button>
+      </div>
+      <div class="terms-modal-body">
+        <p class="modal-intro">이 약관은 법무법인 더 에이치 황해(이하 '법인')가 차액가맹금 집단소송 홈페이지를 통해 제공하는 모든 서비스(이하 '서비스')의 이용조건 및 절차, 이용자와 사이트의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 1 조 (목적)</h3>
+          <div class="modal-article-body">
+            <p>이 약관은 법무법인 더 에이치 황해(이하 '법인')가 차액가맹금 집단소송 홈페이지를 통해 제공하는 모든 서비스(이하 '서비스')의 이용조건 및 절차, 이용자와 사이트의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 2 조 (정의)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li><strong>"홈페이지"</strong>란 법인이 재화 또는 용역을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 거래할 수 있도록 설정한 가상의 영업장을 말합니다.</li>
+              <li><strong>"이용자"</strong>란 홈페이지에 접속하여 이 약관에 따라 법인이 제공하는 서비스를 받는 자를 말합니다.</li>
+              <li><strong>"의뢰인"</strong>이란 홈페이지를 통해 본인인증 또는 정보 입력을 완료하고 법인에 사건을 위임하거나 법률 서비스를 지속적으로 제공받는 자를 말합니다.</li>
+              <li><strong>"서비스"</strong>란 법인이 홈페이지를 통해 제공하는 집단소송 접수, 진행 상황 조회, 소송 위임 계약 체결 등 법률 관련 모든 서비스를 의미합니다.</li>
+              <li><strong>"게시물"</strong>은 이용자가 서비스를 이용함에 있어 법무법인 더 에이치 황해가 운영하는 홈페이지에 게시한 부호·문자·음성·음향·화상·동영상 등의 정보 형태의 글, 사진, 동영상 및 각종 파일과 링크 등을 말합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 3 조 (약관의 명시와 설명 및 개정)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li>법인은 이 약관의 내용과 상호, 대표자 성명, 영업소재지, 연락처, 사업자등록번호 등을 이용자가 쉽게 알 수 있도록 초기 화면에 게시합니다.</li>
+              <li>법인은 이용자가 약관에 동의하기에 앞서 소송 비용, 성공보수, 위임계약의 해지 및 환불 조건, 소송 위임 범위 등 중요한 내용을 이용자가 이해할 수 있도록 별도의 연결화면 또는 신청 절차 내에 명시하여 확인을 구합니다.</li>
+              <li>법인은 관련 법령을 위배하지 않는 범위에서 이 약관을 개정할 수 있으며, 개정 시 시행일 7일 전(이용자에게 불리한 변경은 30일 전)부터 초기 화면에 공지합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 4 조 (서비스의 제공 및 변경)</h3>
+          <div class="modal-article-body">
+            <p>법인은 홈페이지를 통해 다음과 같은 서비스를 제공합니다.</p>
+            <ul>
+              <li>프랜차이즈 집단소송 사건의 신청 및 접수</li>
+              <li>소송 위임 계약의 체결 및 증빙 서류 접수</li>
+              <li>소송 진행 상황(공지사항, 사건번호 등) 안내 및 개별 조회 서비스</li>
+              <li>기타 법인이 추가로 개발하거나 제휴를 통해 의뢰인에게 제공하는 일체의 서비스</li>
+              <li>각종 법률 사건 정보 제공</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 5 조 (이용 신청 및 본인 확인)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li>이용자는 법인이 정한 절차에 따라 성명, 연락처 등 필수 정보를 입력하거나 본인인증(휴대폰 인증 등) 절차를 거침으로써 서비스 이용 신청을 완료합니다.</li>
+              <li>법인은 이용자가 입력한 정보의 정확성을 확인하기 위해 필요 시 추가적인 본인 확인 절차를 요청할 수 있습니다.</li>
+              <li>이용자가 고의 또는 과실로 허위 정보를 입력하거나 타인의 정보를 도용한 경우, 소송 진행에서 제외될 수 있으며 이로 인한 불이익은 이용자 본인이 부담합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 6 조 (통지 및 정보 제공)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li>법인은 의뢰인에게 통지하는 경우, 의뢰인이 입력한 휴대폰 번호(알림톡/SMS) 등을 이용할 수 있습니다.</li>
+              <li>불특정 다수 이용자에 대한 통지는 1주일 이상 홈페이지 공지사항에 게시함으로써 개별 통지에 갈음할 수 있습니다. 단, 사건 진행 중 의뢰인의 권리에 중대한 영향을 미치는 사항은 개별 통지합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 7 조 (개인정보 보호)</h3>
+          <div class="modal-article-body">
+            <p>법인은 이용자의 개인정보를 보호하기 위해 '개인정보 처리방침'을 수립하고 이를 준수합니다. 상세 내용은 별도로 게시된 개인정보 처리방침에 따릅니다.</p>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 8 조 (법인의 의무)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li>법인은 법령과 이 약관이 금지하거나 공서양속에 반하는 행위를 하지 않으며, 지속적이고 안정적으로 서비스를 제공하는 데 최선을 다합니다.</li>
+              <li>법인은 이용자가 안전하게 인터넷 서비스를 이용할 수 있도록 보안 시스템을 구축하고 운영합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 9 조 (이용자의 의무)</h3>
+          <div class="modal-article-body">
+            <p>이용자는 다음 행위를 하여서는 안 됩니다.</p>
+            <ul>
+              <li>신청 또는 변경 시 허위 내용의 등록</li>
+              <li>타인의 정보 도용 및 비정상적인 경로를 통한 서비스 이용</li>
+              <li>홈페이지에 게시된 정보의 무단 변경, 복제, 배포</li>
+              <li>법인 또는 제3자의 지적재산권 침해 및 명예훼손 행위</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 10 조 (저작권 및 이용 제한)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li>홈페이지에 게시된 모든 서비스, 소스코드, 이미지, 법률 정보 등 콘텐츠에 대한 저작권은 법무법인 더 에이치 황해에 귀속됩니다.</li>
+              <li>이용자는 법인의 사전 동의 없이 정보를 복사, 배포, 출판하거나 기타 영리 목적으로 이용할 수 없습니다.</li>
+              <li>법인은 이용자가 게시판 등에 올린 게시물(질문, 후기)이 공서양속에 반하거나 명예훼손 등의 위법소지가 있을 시 이용자의 동의 없이 게시물을 삭제할 수 있습니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 11 조 (손해배상 및 면책)</h3>
+          <div class="modal-article-body">
+            <ul>
+              <li>홈페이지에 게시된 일반적인 법률 정보는 구체적인 개별 사안에 그대로 적용되지 않을 수 있습니다. 의뢰인이 법인의 정식 법률 자문 없이 게시물만을 신뢰하여 발생한 손해에 대하여 법인은 책임을 지지 않습니다.</li>
+              <li>법인은 천재지변, 정보통신설비의 보수 점검, 통신 두절 등 불가항력적인 사유로 서비스 제공이 일시 중단된 경우, 이와 관련하여 발생한 손해에 대하여 책임을 면합니다.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-article">
+          <h3 class="modal-article-title">제 12 조 (분쟁의 해결)</h3>
+          <div class="modal-article-body">
+            <p>본 서비스 이용과 관련하여 분쟁이 발생한 경우 이용자와 법인은 원만히 해결하기 위해 노력하며, 소송이 제기될 경우 관할 법원은 법무법인 더 에이치 황해 본점 소재지 관할 법원으로 합니다.</p>
+          </div>
+        </div>
+
+        <div class="modal-supplement">
+          <h3 class="modal-article-title">부칙</h3>
+          <p>본 이용약관은 2026년 3월 9일부터 적용됩니다.</p>
+        </div>
+
+        <div class="modal-footer-info">
+          <p><strong>법무법인 더 에이치 황해</strong></p>
+          <p>사업자등록번호: 121-81-78634 | 대표: 천상현</p>
+          <p>주소: 인천광역시 미추홀구 학익소로 60, 반도빌딩</p>
+          <p>전화: 032-251-1000 | E-mail: theh1000@lfthe-h.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
   (function () {
     'use strict';
@@ -1057,6 +1531,13 @@
       $('applySection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    /* ===== Validation helpers ===== */
+    var NAME_RE = /^[가-힣]{2,5}$/;
+    var PHONE_RE = /^01[016789]-\d{3,4}-\d{4}$/;
+
+    function isNameValid(v) { return NAME_RE.test(v); }
+    function isPhoneValid(v) { return PHONE_RE.test(v); }
+
     /* ===== Phone auto-hyphen ===== */
     $('inputPhone').addEventListener('input', function () {
       var v = this.value.replace(/\D/g, '');
@@ -1067,7 +1548,51 @@
       } else {
         this.value = v.slice(0, 3) + '-' + v.slice(3, 7) + '-' + v.slice(7, 11);
       }
+      clearFieldErrors('inputPhone', ['errPhone', 'errPhoneFormat']);
+      updateStep1Btn();
     });
+
+    /* ===== Name input: block non-Korean characters ===== */
+    $('inputName').addEventListener('input', function () {
+      clearFieldErrors('inputName', ['errName', 'errNameFormat']);
+      updateStep1Btn();
+    });
+
+    /* ===== Clear field errors helper ===== */
+    function clearFieldErrors(inputId, errIds) {
+      setInputError($(inputId), false);
+      for (var i = 0; i < errIds.length; i++) {
+        showError(errIds[i], false);
+      }
+    }
+
+    /* ===== Step 1 realtime button toggle ===== */
+    function isStep1Valid() {
+      var name = $('inputName').value.trim();
+      var phone = $('inputPhone').value.trim();
+      var branch = $('inputBranch').value.trim();
+      return isNameValid(name) && isPhoneValid(phone) && branch;
+    }
+    function updateStep1Btn() {
+      $('step1Next').disabled = !isStep1Valid();
+    }
+    $('inputName').addEventListener('input', updateStep1Btn);
+    $('inputBranch').addEventListener('input', updateStep1Btn);
+
+    /* ===== Step 2 realtime button toggle ===== */
+    function updateStep2Btn() {
+      $('step2Next').disabled = fileSets.files1.length === 0;
+      showError('errFiles1', false);
+    }
+
+    /* ===== Step 3 realtime button toggle ===== */
+    function updateStep3Btn() {
+      var ok = $('privacyCheck').checked && $('termsCheck').checked;
+      $('step3Submit').disabled = !ok;
+      showError('errAgreement', false);
+    }
+    $('privacyCheck').addEventListener('change', updateStep3Btn);
+    $('termsCheck').addEventListener('change', updateStep3Btn);
 
     /* ===== Step management ===== */
     var currentStep = 1;
@@ -1092,11 +1617,12 @@
         } else {
           circle.textContent = i;
         }
-        // lines
         var line = $('line' + i);
         if (line) { line.classList.toggle('done', i < step); }
       }
       currentStep = step;
+      if (step === 2) updateStep2Btn();
+      if (step === 3) updateStep3Btn();
     }
 
     /* ===== Validation ===== */
@@ -1104,21 +1630,49 @@
       var name = $('inputName').value.trim();
       var phone = $('inputPhone').value.trim();
       var branch = $('inputBranch').value.trim();
-      var phoneOk = /^010-\d{4}-\d{4}$/.test(phone);
       var ok = true;
-      if (!name) { showError('errName', true); setInputError($('inputName'), true); ok = false; }
-      else { showError('errName', false); setInputError($('inputName'), false); }
-      if (!phoneOk) { showError('errPhone', true); setInputError($('inputPhone'), true); ok = false; }
-      else { showError('errPhone', false); setInputError($('inputPhone'), false); }
+
+      /* 이름 검증 */
+      showError('errName', false);
+      showError('errNameFormat', false);
+      if (!name) {
+        showError('errName', true); setInputError($('inputName'), true); ok = false;
+      } else if (!isNameValid(name)) {
+        showError('errNameFormat', true); setInputError($('inputName'), true); ok = false;
+      } else {
+        setInputError($('inputName'), false);
+      }
+
+      /* 전화번호 검증 */
+      showError('errPhone', false);
+      showError('errPhoneFormat', false);
+      if (!phone) {
+        showError('errPhone', true); setInputError($('inputPhone'), true); ok = false;
+      } else if (!isPhoneValid(phone)) {
+        showError('errPhoneFormat', true); setInputError($('inputPhone'), true); ok = false;
+      } else {
+        setInputError($('inputPhone'), false);
+      }
+
+      /* 지점명 검증 */
       if (!branch) { showError('errBranch', true); setInputError($('inputBranch'), true); ok = false; }
       else { showError('errBranch', false); setInputError($('inputBranch'), false); }
       return ok;
     }
 
+    function validateStep2() {
+      if (fileSets.files1.length === 0) {
+        showError('errFiles1', true);
+        return false;
+      }
+      showError('errFiles1', false);
+      return true;
+    }
+
     function validateStep3() {
-      var checked = $('privacyCheck').checked;
-      showError('errPrivacy', !checked);
-      return checked;
+      var ok = $('privacyCheck').checked && $('termsCheck').checked;
+      showError('errAgreement', !ok);
+      return ok;
     }
 
     /* ===== Navigation buttons ===== */
@@ -1129,11 +1683,57 @@
       if (validateStep1()) { goToStep(2); }
     });
     $('step2Prev').addEventListener('click', function () { goToStep(1); });
-    $('step2Next').addEventListener('click', function () { goToStep(3); });
+    $('step2Next').addEventListener('click', function () {
+      if (validateStep2()) { goToStep(3); }
+    });
     $('step3Prev').addEventListener('click', function () { goToStep(2); });
     $('step3Submit').addEventListener('click', function () {
-      if (validateStep3()) { showSuccess(); }
+      if (validateStep3()) { submitApplication(); }
     });
+
+    /* ===== API Submit ===== */
+    function submitApplication() {
+      var btn = $('step3Submit');
+      btn.disabled = true;
+      btn.textContent = '접수 중...';
+
+      var formData = new FormData();
+      formData.append('name', $('inputName').value.trim());
+      formData.append('phone', $('inputPhone').value.trim());
+      formData.append('brand', $('inputBranch').value.trim());
+      formData.append('description', $('inputNote').value.trim() || '-');
+      formData.append('privacy_policy_agreed', $('privacyCheck').checked ? '1' : '0');
+
+      fileSets.files1.forEach(function (f) { formData.append('contractFile', f); });
+      fileSets.files2.forEach(function (f) { formData.append('receiptFile', f); });
+      fileSets.files3.forEach(function (f) { formData.append('disclosureFile', f); });
+
+      fetch('/sinjeon/applicant', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function (res) {
+        return res.json().then(function (data) { return { status: res.status, body: data }; });
+      })
+      .then(function (result) {
+        if (result.body.success) {
+          showSuccess();
+        } else if (result.status === 409) {
+          alert(result.body.message || '이미 등록된 연락처입니다.');
+          btn.disabled = false;
+          btn.textContent = '신청 완료하기 ✓';
+        } else {
+          alert(result.body.message || '접수에 실패했습니다. 다시 시도해 주세요.');
+          btn.disabled = false;
+          btn.textContent = '신청 완료하기 ✓';
+        }
+      })
+      .catch(function () {
+        alert('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+        btn.disabled = false;
+        btn.textContent = '신청 완료하기 ✓';
+      });
+    }
 
     /* ===== Success ===== */
     function showSuccess() {
@@ -1148,6 +1748,32 @@
 
     /* ===== File Upload ===== */
     var fileSets = { files1: [], files2: [], files3: [] };
+    var FILE_LIMITS = { files1: 50, files2: 50, files3: 1 };
+    var ALLOWED_TYPES = {
+      files1: ['.pdf', '.jpg', '.jpeg', '.png', '.heic'],
+      files2: ['.pdf', '.jpg', '.jpeg', '.png', '.heic'],
+      files3: ['.pdf']
+    };
+
+    function getFileExt(name) {
+      var idx = name.lastIndexOf('.');
+      return idx >= 0 ? name.slice(idx).toLowerCase() : '';
+    }
+
+    function filterFiles(fileSetKey, fileList) {
+      var allowed = ALLOWED_TYPES[fileSetKey];
+      var limit = FILE_LIMITS[fileSetKey];
+      var current = fileSets[fileSetKey].length;
+      var remaining = limit - current;
+      var result = [];
+      for (var i = 0; i < fileList.length && result.length < remaining; i++) {
+        var ext = getFileExt(fileList[i].name);
+        if (allowed.indexOf(ext) !== -1) {
+          result.push(fileList[i]);
+        }
+      }
+      return result;
+    }
 
     function renderFileList(listId, fileSetKey) {
       var container = $(listId);
@@ -1166,6 +1792,7 @@
           return function () {
             fileSets[key].splice(i, 1);
             renderFileList(lId, key);
+            updateStep2Btn();
           };
         })(idx, fileSetKey, listId));
         item.appendChild(nameSpan);
@@ -1175,17 +1802,22 @@
     }
 
     function addFiles(fileSetKey, listId, fileList) {
-      for (var i = 0; i < fileList.length; i++) {
-        fileSets[fileSetKey].push(fileList[i]);
+      var filtered = filterFiles(fileSetKey, fileList);
+      for (var i = 0; i < filtered.length; i++) {
+        fileSets[fileSetKey].push(filtered[i]);
       }
       renderFileList(listId, fileSetKey);
+      updateStep2Btn();
     }
 
     function setupUpload(zoneId, inputId, fileSetKey, listId) {
       var zone = $(zoneId);
       var input = $(inputId);
 
-      zone.addEventListener('click', function () { input.click(); });
+      zone.addEventListener('click', function () {
+        if (fileSets[fileSetKey].length >= FILE_LIMITS[fileSetKey]) return;
+        input.click();
+      });
       input.addEventListener('change', function () {
         addFiles(fileSetKey, listId, this.files);
         this.value = '';
@@ -1207,6 +1839,35 @@
     setupUpload('zone1', 'files1', 'files1', 'list1');
     setupUpload('zone2', 'files2', 'files2', 'list2');
     setupUpload('zone3', 'files3', 'files3', 'list3');
+
+    /* ===== Terms Modals ===== */
+    function openModal(id) {
+      $(id).classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      $(id).classList.remove('show');
+      if (!$('privacyModalOverlay').classList.contains('show') &&
+          !$('termsModalOverlay').classList.contains('show')) {
+        document.body.style.overflow = '';
+      }
+    }
+    $('btnViewPrivacy').addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal('privacyModalOverlay');
+    });
+    $('btnViewTerms').addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal('termsModalOverlay');
+    });
+    $('privacyModalClose').addEventListener('click', function () { closeModal('privacyModalOverlay'); });
+    $('termsModalClose').addEventListener('click', function () { closeModal('termsModalOverlay'); });
+    $('privacyModalOverlay').addEventListener('click', function (e) {
+      if (e.target === this) closeModal('privacyModalOverlay');
+    });
+    $('termsModalOverlay').addEventListener('click', function (e) {
+      if (e.target === this) closeModal('termsModalOverlay');
+    });
 
     /* ===== Bottom Sheet ===== */
     var overlay = $('overlay');
@@ -1233,7 +1894,11 @@
 
     /* Keyboard close */
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeSheet();
+      if (e.key === 'Escape') {
+        closeSheet();
+        closeModal('privacyModalOverlay');
+        closeModal('termsModalOverlay');
+      }
     });
 
   })();
