@@ -1709,10 +1709,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       var formData = new FormData();
       formData.append('name', $('inputName').value.trim());
-      formData.append('phone', $('inputPhone').value.trim());
+      formData.append('phone', $('inputPhone').value.trim().replace(/-/g, ''));
       formData.append('brand', $('inputBranch').value.trim());
-      formData.append('description', $('inputNote').value.trim() || '-');
-      formData.append('privacy_policy_agreed', $('privacyCheck').checked ? '1' : '0');
+      formData.append('description', $('inputNote').value.trim() || null);
+      formData.append('privacy_policy_agreed', $('privacyCheck').checked ? true : false);
 
       fileSets.files1.forEach(function (f) { formData.append('contractFile', f); });
       fileSets.files2.forEach(function (f) { formData.append('receiptFile', f); });
