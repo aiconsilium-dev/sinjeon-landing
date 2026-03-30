@@ -1043,13 +1043,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- STEP 2 -->
         <div class="step-panel" id="step2">
           <div class="file-notice">
-            가맹계약서는 필수 첨부 서류입니다.<br />
-            <strong>물품구매 내역서와 정보공개서는 선택 사항입니다.</strong>
+            모든 서류는 선택 사항입니다.<br />
+            <strong>해당하는 서류가 있다면 첨부해 주세요.</strong>
           </div>
 
           <!-- Upload: 가맹계약서 -->
           <div class="form-group">
-            <label class="form-label">가맹계약서<span class="req">*</span></label>
+            <label class="form-label">가맹계약서<span class="opt">(선택)</span></label>
             <div class="upload-zone" id="zone1" data-target="files1">
               <div class="upload-icon">📄</div>
               <div class="upload-text">드래그하거나 <strong>클릭하여 파일 선택</strong></div>
@@ -1057,7 +1057,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <input type="file" id="files1" class="hidden-input" multiple accept=".pdf,.jpg,.jpeg,.png,.heic" />
             <div class="file-list" id="list1"></div>
-            <div class="error-msg" id="errFiles1">가맹계약서를 첨부해 주세요.</div>
           </div>
 
           <!-- Upload: 물품구매 내역서 -->
@@ -1086,7 +1085,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="form-nav">
             <button class="btn btn-outline" id="step2Prev">← 이전</button>
-            <button class="btn btn-primary" id="step2Next" disabled>다음 →</button>
+            <button class="btn btn-primary" id="step2Next">다음 →</button>
           </div>
         </div>
 
@@ -1591,8 +1590,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     /* ===== Step 2 realtime button toggle ===== */
     function updateStep2Btn() {
-      $('step2Next').disabled = fileSets.files1.length === 0;
-      showError('errFiles1', false);
+      $('step2Next').disabled = false;
     }
 
     /* ===== Step 3 realtime button toggle ===== */
@@ -1671,11 +1669,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     function validateStep2() {
-      if (fileSets.files1.length === 0) {
-        showError('errFiles1', true);
-        return false;
-      }
-      showError('errFiles1', false);
       return true;
     }
 
